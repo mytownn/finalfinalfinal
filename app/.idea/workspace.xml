@@ -6,7 +6,12 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fda41ec8-2b4a-4cac-9766-138e32a5f961" name="Default Changelist" comment="" />
+    <list default="true" id="fda41ec8-2b4a-4cac-9766-138e32a5f961" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/village/CustomAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/village/CustomAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/list_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/list_item.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,7 +30,11 @@
       </state>
     </system>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1dTZo2nT9vrLrowVdFFVn6M11VI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -33,6 +42,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/example/village" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
@@ -121,13 +131,17 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="722" y="64" key="#Inspections" timestamp="1592460241156">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="722" y="64" key="#Inspections/0.0.1536.824@0.0.1536.824" timestamp="1592460241156" />
     <state x="558" y="271" width="419" height="291" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1592452875695">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="558" y="271" width="419" height="291" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1592452875695" />
-    <state width="300" height="108" key="javadoc.popup.new" timestamp="1592456422649">
+    <state width="300" height="108" key="javadoc.popup.new" timestamp="1592461189474">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="300" height="108" key="javadoc.popup.new/0.0.1536.824@0.0.1536.824" timestamp="1592456422649" />
+    <state width="300" height="108" key="javadoc.popup.new/0.0.1536.824@0.0.1536.824" timestamp="1592461189474" />
   </component>
 </project>

@@ -2,7 +2,9 @@ package com.example.village;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Build;
@@ -27,24 +29,30 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.atomic.AtomicMarkableReference;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.loader.content.CursorLoader;
 import androidx.recyclerview.widget.RecyclerView;
 
 import static android.content.ContentValues.TAG;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> {
 
-    private ArrayList<Item> arrayList;
 
+    private static final String TAG = "Itembox";
+    private ArrayList<Item> arrayList;
     private Context context;
     byte[] byteArray;
     private Uri filePath;
+    FirebaseStorage storage = FirebaseStorage.getInstance("gs://village-c49ce.appspot.com");
 
     public CustomAdapter(ArrayList<Item> arrayList, Context context) {
         this.arrayList = arrayList;
@@ -117,10 +125,40 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
                        Intent intent = new Intent(itemView.getContext(),MainActivity.class);
                    //     intent.putExtra("image", String.valueOf(iv_profile));
                    //     intent.putExtra("String", String.valueOf(tv_username));
-                        intent.putExtra("profile", String.valueOf(iv_profile.getContext()));
+                       // intent.putExtra("profile", String.valueOf(iv_profile.getContext()));
                         itemView.getContext().startActivity(intent);
 /////////////////////****************DBDB***********////////////////
-                     
+
+                        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMHH_mmss");
+                        Date now = new Date();
+                        String filename = formatter.format(now) + ".png";
+
+                        StorageReference storageRef = storage.getReference();
+                        StorageReference mountainImagesRef = storageRef.child("main/"+filename);
+
+
+                        iv_profile.setDrawingCacheEnabled(true);
+                        iv_profile.buildDrawingCache();
+                        Bitmap bitmap = ((BitmapDrawable) iv_profile.getDrawable()).getBitmap();
+                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                        byte[] data = baos.toByteArray();
+
+                        UploadTask uploadTask = mountainImagesRef.putBytes(data);
+                        uploadTask.addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception exception) {
+                                // Handle unsuccessful uploads
+                            }
+                        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
+                                // ...
+                            }
+                        });
+
+                        
                         ///////아이템사용처리/////////////////////////////////
                         GradientDrawable drawable =
                                 (GradientDrawable) itemView.getContext().getDrawable(R.drawable.background_rounding);
